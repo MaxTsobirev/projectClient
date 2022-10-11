@@ -1,12 +1,13 @@
 <script>
 	export let segment;
 	import { goto,stores } from '@sapper/app';
+	import {post} from 'api.js';
 
 	const { page, session } = stores();
 
 	async function logout(){
 		await post ('auth/logout');
-		$session.user = null;
+		$session.token = null;
 		goto('/');
 	}
 </script>
@@ -67,3 +68,6 @@
 		{/if}
 	</ul>
 </nav>
+<!--
+
+-->
